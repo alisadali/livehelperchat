@@ -4,8 +4,8 @@
 		<div class="row">
 			<div class="col-md-6">
 				<ul>
-        		    <?php if ($currentUser->hasAccessTo('lhdepartament','list')) : ?>
-        		    <li><a href="<?php echo erLhcoreClassDesign::baseurl('departament/departaments')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Departments');?></a></li>
+        		    <?php if ($currentUser->hasAccessTo('lhdepartment','list')) : ?>
+        		    <li><a href="<?php echo erLhcoreClassDesign::baseurl('department/departments')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Departments');?></a></li>
         		    <?php endif; ?>
         		   
         		    <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/blockusers.tpl.php'));?>
@@ -17,7 +17,7 @@
         		    <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/geoadjustment.tpl.php'));?>
         			
         			<?php if ($currentUser->hasAccessTo('lhchat','administrateconfig')) : ?>
-        		    <li><a href="<?php echo erLhcoreClassDesign::baseurl('chat/syncandsoundesetting')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Synchronization and sound settings');?></a></li>
+        			<?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/syncandsoundesetting.tpl.php'));?>
         		    <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/start_chat_form_settings.tpl.php'));?>
         		    
         		    <?php endif;?>

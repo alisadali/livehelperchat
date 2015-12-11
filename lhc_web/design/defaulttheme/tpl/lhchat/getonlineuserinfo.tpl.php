@@ -16,8 +16,13 @@
     		
     		<?php include(erLhcoreClassDesign::designtpl('lhchat/online_user/user_chats_tab.tpl.php')); ?>
     		
-    		<?php include(erLhcoreClassDesign::designtpl('lhchat/online_user/screenshot_tab.tpl.php')); ?>
+    		<?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/operator_screenshot_pre.tpl.php')); ?>
     		
+    		<?php if ($operator_screenshot_enabled == true) : ?>
+    		  <?php include(erLhcoreClassDesign::designtpl('lhchat/online_user/screenshot_tab.tpl.php')); ?>
+    		<?php endif;?>
+    		
+    		    		
     		<?php include(erLhcoreClassDesign::designtpl('lhchat/online_user/notes_tab.tpl.php')); ?>
     	</ul>
     
@@ -25,7 +30,13 @@
     	<div class="tab-content">
     		<div role="tabpanel" class="tab-pane active" id="panel1">
     		  <?php include(erLhcoreClassDesign::designtpl('lhchat/online_user/online_user_info.tpl.php')); ?>
+    		  
+    		  <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/proactive_pre.tpl.php'));?>
+    		  
+    		  <?php if ($system_configuration_proactive_enabled == true) : ?>
     		  <input type="button" class="btn btn-default" onclick="lhc.revealModal({'url':'<?php echo erLhcoreClassDesign::baseurl('chat/sendnotice')?>/<?php echo $online_user->id?>'});" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Send message');?>"/>
+    		  <?php endif;?>
+    		  
     		</div>
     		
     		<?php if ( $chat_chat_tabs_footprint_tab_tab_enabled == true && erLhcoreClassModelChatConfig::fetch('track_footprint')->current_value == 1) : ?>
@@ -42,9 +53,11 @@
     		
     		<?php include(erLhcoreClassDesign::designtpl('lhchat/online_user/user_chats.tpl.php')); ?>
     		
-    		<?php include(erLhcoreClassDesign::designtpl('lhchat/online_user/screenshot.tpl.php')); ?>
+    		<?php if ($operator_screenshot_enabled == true) : ?>
+    		  <?php include(erLhcoreClassDesign::designtpl('lhchat/online_user/screenshot.tpl.php')); ?>
+    		<?php endif;?>
     		
-    		 <?php include(erLhcoreClassDesign::designtpl('lhchat/online_user/notes.tpl.php')); ?>
+    		<?php include(erLhcoreClassDesign::designtpl('lhchat/online_user/notes.tpl.php')); ?>
     	</div>
     </div>
 </div>

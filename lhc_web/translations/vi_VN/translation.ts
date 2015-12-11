@@ -347,16 +347,36 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Messages style</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Need help widget</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Main widget text</source>
+      <source>Chat widget</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Custom CSS</source>
       <translation>Tùy chỉnh CSS</translation>
+    </message>
+    <message>
+      <source>Visitor messages style</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operator messages style</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>General settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Text changes</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Name</source>
@@ -368,6 +388,14 @@
     </message>
     <message>
       <source>Need help header text</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Need help tooltip timeout, after how many hours show again tooltip?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show need help tooltip?</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -475,19 +503,19 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Text then user starts chat based on proactive invitation</source>
+      <source>Text when user starts chat based on proactive invitation</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Text then operator closes a chat</source>
+      <source>Text when operator closes a chat</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Text then user starts a chat and is waiting for operator to join a chat</source>
+      <source>Text when user starts a chat and is waiting for operator to join a chat</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Text then user starts a chat but department is offline</source>
+      <source>Text when user starts a chat but department is offline</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -539,6 +567,50 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Visitor buble background color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visitor title color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visitor text color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operator buble background color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operator title color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operator text color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show voting thumbs?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Use different title for department? E.g Location</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Location</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Additional option before department selection</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Widget themes</source>
       <translation type="unfinished"/>
     </message>
@@ -563,11 +635,11 @@
     </message>
     <message>
       <source>Need help?</source>
-      <translation>Cần trợ giúp?</translation>
+      <translation>Bạn cần sự trợ giúp ?</translation>
     </message>
     <message>
       <source>Our staff is always ready to help</source>
-      <translation>Nhân viên của chúng tôi luôn luôn sẵn sàng giúp đỡ</translation>
+      <translation>Nhân viên hỗ trợ của chúng tôi luôn luôn sẵn sàng trợ giúp</translation>
     </message>
     <message>
       <source>Live help is offline...</source>
@@ -625,8 +697,8 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Show visitor this message then wait timeout passes.</source>
-      <translation>Hiển thị tin nhắn này cho khách hàng khi hết thời gian chờ.</translation>
+      <source>Show visitor this message when wait timeout passes</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Auto responder</source>
@@ -699,6 +771,10 @@
     <message>
       <source>Wait message. Visible then users starts chat and is waiting for someone to accept a chat.</source>
       <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show visitor this message then wait timeout passes.</source>
+      <translation>Hiển thị tin nhắn này cho khách hàng khi hết thời gian chờ.</translation>
     </message>
     <message>
       <source>Pro active chat invitations</source>
@@ -1106,144 +1182,6 @@
     </message>
   </context>
   <context>
-    <name>chat/activechats</name>
-    <message>
-      <source>Information</source>
-      <translation>Thông tin</translation>
-    </message>
-    <message>
-      <source>Open in a new window</source>
-      <translation>Mở trong một cửa sổ mới</translation>
-    </message>
-    <message>
-      <source>Close chat</source>
-      <translation>Kết thúc trò chuyện </translation>
-    </message>
-    <message>
-      <source>Delete chat</source>
-      <translation>Xoá trò chuyện</translation>
-    </message>
-    <message>
-      <source>Empty...</source>
-      <translation>Rỗng...</translation>
-    </message>
-    <message>
-      <source>Active chats list</source>
-      <translation>Danh sách các cuộc trò chuyện</translation>
-    </message>
-    <message>
-      <source>Chats lists</source>
-      <translation>Danh sách cuộc trò chuyện</translation>
-    </message>
-    <message>
-      <source>Active chats</source>
-      <translation>Các cuộc trò chuyện</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/lists/search_panel</name>
-    <message>
-      <source>Delete selected</source>
-      <translation>Xóa mục được chọn</translation>
-    </message>
-    <message>
-      <source>Nick</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>E-mail</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Date range from to</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation>Phòng ban</translation>
-    </message>
-    <message>
-      <source>User</source>
-      <translation>Người dùng</translation>
-    </message>
-    <message>
-      <source>Vote status</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Any</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Not Voted</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Up Voted</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Down vote</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Search</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Print</source>
-      <translation>In</translation>
-    </message>
-    <message>
-      <source>XLS</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>XLS (with content)</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Select department</source>
-      <translation>Chọn bộ phận</translation>
-    </message>
-    <message>
-      <source>Select user</source>
-      <translation>Chọn người dùng</translation>
-    </message>
-    <message>
-      <source>Type to search</source>
-      <translation>Nhập để tìm kiếm</translation>
-    </message>
-    <message>
-      <source>Choose department</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Group by</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Month</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Day</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Group results by operator</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Minimum chats</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Optional</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
     <name>chat/chat</name>
     <message>
       <source>Show/Hide right column</source>
@@ -1294,16 +1232,16 @@
       <translation>Đóng</translation>
     </message>
     <message>
+      <source>Enter your message</source>
+      <translation>Nội dung văn bản trao đổi</translation>
+    </message>
+    <message>
       <source>Send</source>
       <translation>Gửi</translation>
     </message>
     <message>
       <source>BB Code</source>
       <translation>Biểu tượng</translation>
-    </message>
-    <message>
-      <source>Enter your message</source>
-      <translation>Nội dung văn bản trao đổi</translation>
     </message>
     <message>
       <source>Chatbox is disabled.</source>
@@ -1525,6 +1463,10 @@
       <translation>Еmail</translation>
     </message>
     <message>
+      <source>Visible only if online</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Disabled</source>
       <translation>Đã tắt</translation>
     </message>
@@ -1693,12 +1635,12 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>To what department chat should be transfered if it is not accepted</source>
+      <source>To what department chat should be transferred if it is not accepted</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Timeout in seconds before chat is transfered to another department. Minimum 5 seconds.</source>
-      <translation>Thời gian chờ tính bằng giây trước khi cuộc trò chuyện được chuyển sang cho một bộ phận khác. Tối thiểu 5 giây.</translation>
+      <source>Timeout in seconds before chat is transferred to another department. Minimum 5 seconds.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Execute new chat logic again for recipient department?</source>
@@ -1721,8 +1663,8 @@
       <translation>Cấu hình hệ thống</translation>
     </message>
     <message>
-      <source>departments</source>
-      <translation>bộ phận</translation>
+      <source>Departments</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Edit a department</source>
@@ -1836,7 +1778,7 @@
     </message>
     <message>
       <source>Please enter a URL</source>
-      <translation type="unfinished"/>
+      <translation>Vui lòng nhập đường link</translation>
     </message>
     <message>
       <source>Redirect user to another url</source>
@@ -1875,8 +1817,16 @@
       <translation>Điện thoại</translation>
     </message>
     <message>
+      <source>Refresh</source>
+      <translation>Làm tươi</translation>
+    </message>
+    <message>
       <source>Additional data</source>
       <translation>Dữ liệu bổ sung</translation>
+    </message>
+    <message>
+      <source>Hidden field</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Created</source>
@@ -1909,10 +1859,6 @@
     <message>
       <source>Map</source>
       <translation>Bản đồ</translation>
-    </message>
-    <message>
-      <source>Refresh</source>
-      <translation>Làm tươi</translation>
     </message>
     <message>
       <source>User browsing information</source>
@@ -2120,32 +2066,8 @@
       <translation>Mở trong một cửa sổ mới</translation>
     </message>
     <message>
-      <source>Add chat</source>
-      <translation>Thêm trò chuyện</translation>
-    </message>
-    <message>
-      <source>Start chat</source>
-      <translation>Bắt đầu trò chuyện</translation>
-    </message>
-    <message>
-      <source>Last activity</source>
-      <translation>Hoạt động mới nhất</translation>
-    </message>
-    <message>
-      <source>ago</source>
-      <translation>Trước</translation>
-    </message>
-    <message>
-      <source>Redirect user to contact form.</source>
-      <translation>Chuyển hướng người sử dụng đến form liên hệ.</translation>
-    </message>
-    <message>
-      <source>Are you sure?</source>
-      <translation>Bạn có chắc không?</translation>
-    </message>
-    <message>
-      <source>Accept chat</source>
-      <translation>Chấp nhận trò chuyện</translation>
+      <source>No previous chats</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>h.</source>
@@ -2160,8 +2082,40 @@
       <translation>giây</translation>
     </message>
     <message>
+      <source>ago</source>
+      <translation>Trước</translation>
+    </message>
+    <message>
+      <source>Add chat</source>
+      <translation>Thêm trò chuyện</translation>
+    </message>
+    <message>
+      <source>Start chat</source>
+      <translation>Bắt đầu chat</translation>
+    </message>
+    <message>
+      <source>Last activity</source>
+      <translation>Hoạt động mới nhất</translation>
+    </message>
+    <message>
+      <source>Redirect user to contact form.</source>
+      <translation>Chuyển hướng người sử dụng đến form liên hệ.</translation>
+    </message>
+    <message>
+      <source>Are you sure?</source>
+      <translation>Bạn có chắc không?</translation>
+    </message>
+    <message>
+      <source>Accept chat</source>
+      <translation>Chấp nhận trò chuyện</translation>
+    </message>
+    <message>
       <source>Empty...</source>
       <translation>Rỗng...</translation>
+    </message>
+    <message>
+      <source>Configure dashboard</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Visitor</source>
@@ -2173,7 +2127,7 @@
     </message>
     <message>
       <source>Department</source>
-      <translation type="unfinished"/>
+      <translation>Bộ phận</translation>
     </message>
     <message>
       <source>Nothing found</source>
@@ -2241,6 +2195,13 @@
     <message>
       <source>Screenshot ready...</source>
       <translation>Chụp màn hình sẵn sàng...</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/chatpreview</name>
+    <message>
+      <source>Chat preview</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -2322,15 +2283,15 @@
     </message>
     <message>
       <source>Enter your message</source>
-      <translation>Nhập nội dung văn bản của bạn </translation>
+      <translation>Nội dung văn bản trao đổi</translation>
     </message>
     <message>
       <source>Your question</source>
-      <translation>Nội dung yêu cầu của bạn</translation>
+      <translation>Cần hỗ trợ về</translation>
     </message>
     <message>
       <source>Please enter a message...</source>
-      <translation type="unfinished"/>
+      <translation>Vui lòng nhập tin nhắn</translation>
     </message>
     <message>
       <source>Live support is not available in your country</source>
@@ -2342,7 +2303,7 @@
     </message>
     <message>
       <source>There are no online operators at the moment, please leave a message</source>
-      <translation>Chúng tôi hiện đang ngoại tuyến tại thời điểm này, xin vui lòng để lại tin nhắn. Trân trọng cảm ơn!</translation>
+      <translation>Hiện tại không có nhân viên hỗ trợ, vui lòng để lại tin nhắn</translation>
     </message>
     <message>
       <source>File</source>
@@ -2354,7 +2315,7 @@
     </message>
     <message>
       <source>Leave a message</source>
-      <translation>Để lại tin nhắn</translation>
+      <translation>Để lại một tin nhắn</translation>
     </message>
     <message>
       <source>I accept my personal data will be handled according to</source>
@@ -2390,7 +2351,7 @@
     </message>
     <message>
       <source>Department is offline</source>
-      <translation type="unfinished"/>
+      <translation>Bộ phận hỗ trợ đang offline</translation>
     </message>
     <message>
       <source>Go to leave a message form</source>
@@ -2430,7 +2391,7 @@
     </message>
     <message>
       <source>Please enter a valid email address</source>
-      <translation>Vui lòng nhập một địa chỉ email hợp lệ</translation>
+      <translation>Vui lòng nhập địa chỉ email</translation>
     </message>
     <message>
       <source>Maximum 50 characters</source>
@@ -2442,11 +2403,11 @@
     </message>
     <message>
       <source>Please enter your name</source>
-      <translation>Vui lòng nhập tên của bạn</translation>
+      <translation>Vui lòng nhập tên  </translation>
     </message>
     <message>
       <source>Please enter your message</source>
-      <translation>Vui lòng nhập tin nhắn của bạn</translation>
+      <translation>Vui lòng nhập tin nhắn</translation>
     </message>
     <message>
       <source>Maximum</source>
@@ -2462,7 +2423,7 @@
     </message>
     <message>
       <source>Please enter your phone</source>
-      <translation>Xin vui lòng nhập số điện thoại của bạn</translation>
+      <translation>Vui lòng nhập số điện thoại</translation>
     </message>
     <message>
       <source>Maximum 100 characters for phone</source>
@@ -2470,6 +2431,14 @@
     </message>
     <message>
       <source>Invalid file</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose department!</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2513,7 +2482,7 @@
     </message>
     <message>
       <source>A support staff member has closed this chat</source>
-      <translation>Nhân viên hỗ trợ đã đóng cuộc trò chuyện này</translation>
+      <translation>Nhân viên hỗ trợ đã đã rời cuộc trò chuyện này</translation>
     </message>
     <message>
       <source>You are number</source>
@@ -2525,11 +2494,15 @@
     </message>
     <message>
       <source>Pending a support staff member to join, you can write your questions, and as soon as a support staff member confirms this chat, he will get your messages</source>
-      <translation>Trong khi chờ chúng tôi hỗ trợ bạn, Bạn có thể viết câu hỏi của bạn, và ngay sau khi  chúng tôi xác nhận yêu cầu của bạn, Bạn sẽ nhận được tin nhắn của bạn.</translation>
+      <translation>Nhân viên hỗ trợ chưa kịp phản hồi, bạn có thể nhập câu hỏi của bạn để nhân viên hỗ trợ có thể phản hồi ngay khi nhận được câu hỏi của bạn.  </translation>
     </message>
     <message>
       <source>At this moment there are no logged in support staff members, but you can leave your messages</source>
       <translation>Tại thời điểm này chúng tôi đang ngoại tuyến, Nhưng bạn có thể để lại tin nhắn của bạn.</translation>
+    </message>
+    <message>
+      <source>Pending a support staff member to join, you can write your questions, and as soon as a support staff member confirms this chat, they will get your messages</source>
+      <translation>Nhân viên hỗ trợ chưa kịp phản hồi, bạn có thể nhập câu hỏi của bạn để nhân viên hỗ trợ có thể phản hồi ngay khi nhận được câu hỏi của bạn.  </translation>
     </message>
     <message>
       <source>Visitor has been redirected to contact form</source>
@@ -2537,42 +2510,7 @@
     </message>
   </context>
   <context>
-    <name>chat/closedchats</name>
-    <message>
-      <source>Information</source>
-      <translation>Thông tin</translation>
-    </message>
-    <message>
-      <source>Open in a new window</source>
-      <translation>Mở trong một cửa sổ mới</translation>
-    </message>
-    <message>
-      <source>Delete chat</source>
-      <translation>Xóa trò chuyện</translation>
-    </message>
-    <message>
-      <source>Empty...</source>
-      <translation>Rỗng...</translation>
-    </message>
-    <message>
-      <source>Closed chats list</source>
-      <translation>Danh sách cuộc trò chuyện đã kết thúc</translation>
-    </message>
-    <message>
-      <source>Chats list</source>
-      <translation>Danh sách các cuộc trò chuyện</translation>
-    </message>
-    <message>
-      <source>Closed chats</source>
-      <translation>cuộc trò chuyện kín</translation>
-    </message>
-  </context>
-  <context>
     <name>chat/user_settings</name>
-    <message>
-      <source>Enable/Disable sound about new messages from the operator</source>
-      <translation>Bật / Tắt âm thanh về tin nhắn mới từ các nhà điều hành</translation>
-    </message>
     <message>
       <source>Print</source>
       <translation>In</translation>
@@ -2580,6 +2518,10 @@
     <message>
       <source>Send chat transcript to your e-mail</source>
       <translation>Gửi nội dung chat tới email của bạn</translation>
+    </message>
+    <message>
+      <source>Enable/Disable sound about new messages from the operator</source>
+      <translation>Bật / Tắt âm thanh về tin nhắn mới từ các nhà điều hành</translation>
     </message>
     <message>
       <source>Enable/Disable sound about new messages from users</source>
@@ -2596,6 +2538,49 @@
     <message>
       <source>Change my status to online/offline</source>
       <translation>Thay đổi trạng thái của mình online / offline</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/dashboardwidgets</name>
+    <message>
+      <source>Choose what widgets you want to see</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Settings updated</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Online operators</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Online visitors</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Departments stats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pending chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Unread chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Transfered chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Closed chats</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -2622,6 +2607,17 @@
     </message>
   </context>
   <context>
+    <name>chat/editnick</name>
+    <message>
+      <source>Your information</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Updated!</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>chat/errors/adminchatnopermission</name>
     <message>
       <source>You do not have permission to access the current chat!</source>
@@ -2632,7 +2628,7 @@
     <name>chat/syncuser</name>
     <message>
       <source>Support staff member has closed this chat</source>
-      <translation>Nhân viên hỗ trợ đã đóng cuộc trò chuyện này</translation>
+      <translation>Nhân viên hỗ trợ đã đã rời cuộc trò chuyện này</translation>
     </message>
     <message>
       <source>Edit nick</source>
@@ -2663,7 +2659,7 @@
     <name>chat/errors/entertext</name>
     <message>
       <source>Please enter text!</source>
-      <translation>Vui lòng nhập văn bản!</translation>
+      <translation>Vui lòng nhập văn bản</translation>
     </message>
   </context>
   <context>
@@ -2995,6 +2991,10 @@
       <translation>Gửi tin nhắn</translation>
     </message>
     <message>
+      <source>Chat list</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Dashboard</source>
       <translation type="unfinished"/>
     </message>
@@ -3061,6 +3061,10 @@
     <message>
       <source>User is not having any chat right now</source>
       <translation>Người sử dụng không có bất kỳ cuộc trò chuyện ngay bây giờ</translation>
+    </message>
+    <message>
+      <source>Operator</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>has send message to user</source>
@@ -3131,7 +3135,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Online users on map</source>
+      <source>Online visitors on map</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3283,6 +3287,10 @@
       <translation>lần thăm cuối</translation>
     </message>
     <message>
+      <source>From</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Files upload for users is active</source>
       <translation type="unfinished"/>
     </message>
@@ -3292,14 +3300,10 @@
     </message>
     <message>
       <source>Preview chat</source>
-      <translation type="unfinished"/>
+      <translation>Xem lại cuộc đối thoại</translation>
     </message>
     <message>
       <source>Visits</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>From</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3372,90 +3376,7 @@
     </message>
   </context>
   <context>
-    <name>chat/listchatconfig</name>
-    <message>
-      <source>Notifications about new chats</source>
-      <translation>Thông báo về cuộc trò chuyện mới</translation>
-    </message>
-    <message>
-      <source>Copyright settings</source>
-      <translation>Cài đặt bản quyền</translation>
-    </message>
-    <message>
-      <source>Online tracking</source>
-      <translation>Theo dõi trực tuyến</translation>
-    </message>
-    <message>
-      <source>Misc</source>
-      <translation>Linh tinh</translation>
-    </message>
-    <message>
-      <source>Visitor activity</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Workflow</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Application name</source>
-      <translation>Tên ứng dụng</translation>
-    </message>
-    <message>
-      <source>Site settings</source>
-      <translation>Thiết lập trang</translation>
-    </message>
-    <message>
-      <source>Cookie related</source>
-      <translation>Cookie liên quan</translation>
-    </message>
-    <message>
-      <source>Chat related</source>
-      <translation>Trò chuyện liên quan</translation>
-    </message>
-    <message>
-      <source>Online if</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>(Widget is open) or (closed and user has activity in last 5 minutes and ping respond)</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>(Widget is open or closed) and (user has activity in last 5 minutes and ping respond)</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Update</source>
-      <translation>Cập nhật</translation>
-    </message>
-    <message>
-      <source>Settings updated</source>
-      <translation>Cài đặt được cập nhật</translation>
-    </message>
-    <message>
-      <source>This determines should status widget change it&apos;s status once operator logins. Recommended value 290</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Screen sharing</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Chat configuration</source>
-      <translation>Cấu hình trò chuyện</translation>
-    </message>
-    <message>
-      <source>List chat configuration</source>
-      <translation>Cấu hình danh sách trò chuyện </translation>
-    </message>
-  </context>
-  <context>
     <name>system/configuration</name>
-    <message>
-      <source>Supported: online_operators, departments_stats, pending_chats, unread_chats, transfered_chats, active_chats, closed_chats</source>
-      <translation type="unfinished"/>
-    </message>
     <message>
       <source>Request notification permission</source>
       <translation>Yêu cầu sự cho phép thông báo</translation>
@@ -3487,18 +3408,6 @@
     <message>
       <source>Languages configuration</source>
       <translation>Cấu hình ngôn ngữ</translation>
-    </message>
-    <message>
-      <source>Users</source>
-      <translation>Người dùng</translation>
-    </message>
-    <message>
-      <source>List of groups</source>
-      <translation>Danh sách các nhóm</translation>
-    </message>
-    <message>
-      <source>List of roles</source>
-      <translation>Danh sách các vai trò</translation>
     </message>
     <message>
       <source>GEO detection configuration</source>
@@ -3593,6 +3502,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Synchronization and sound settings</source>
+      <translation>Đồng bộ hóa âm thanh và thiết lập</translation>
+    </message>
+    <message>
       <source>Theming</source>
       <translation type="unfinished"/>
     </message>
@@ -3613,6 +3526,18 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Users</source>
+      <translation>Người dùng</translation>
+    </message>
+    <message>
+      <source>List of groups</source>
+      <translation>Danh sách các nhóm</translation>
+    </message>
+    <message>
+      <source>List of roles</source>
+      <translation>Danh sách các vai trò</translation>
+    </message>
+    <message>
       <source>XMPP settings</source>
       <translation>Cài đặt XMPP </translation>
     </message>
@@ -3623,10 +3548,6 @@
     <message>
       <source>Departments</source>
       <translation>Bộ phận</translation>
-    </message>
-    <message>
-      <source>Synchronization and sound settings</source>
-      <translation>Đồng bộ hóa âm thanh và thiết lập</translation>
     </message>
     <message>
       <source>Embed code</source>
@@ -3650,34 +3571,290 @@
     </message>
   </context>
   <context>
-    <name>chat/lists</name>
+    <name>chat/listchatconfig</name>
     <message>
-      <source>Choose what type of list you want to see</source>
-      <translation>Chọn loại danh sách bạn muốn xem</translation>
+      <source>Application name</source>
+      <translation>Tên ứng dụng</translation>
+    </message>
+    <message>
+      <source>Site settings</source>
+      <translation>Thiết lập trang</translation>
+    </message>
+    <message>
+      <source>Cookie related</source>
+      <translation>Cookie liên quan</translation>
+    </message>
+    <message>
+      <source>Chat related</source>
+      <translation>Trò chuyện liên quan</translation>
+    </message>
+    <message>
+      <source>Misc</source>
+      <translation>Linh tinh</translation>
+    </message>
+    <message>
+      <source>Online if</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>(Widget is open) or (closed and user has activity in last 5 minutes and ping respond)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>(Widget is open or closed) and (user has activity in last 5 minutes and ping respond)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Update</source>
+      <translation>Cập nhật</translation>
+    </message>
+    <message>
+      <source>Settings updated</source>
+      <translation>Cài đặt được cập nhật</translation>
+    </message>
+    <message>
+      <source>This determines should status widget change it&apos;s status once operator logins. Recommended value 290</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Screen sharing</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Notifications about new chats</source>
+      <translation>Thông báo về cuộc trò chuyện mới</translation>
+    </message>
+    <message>
+      <source>Copyright settings</source>
+      <translation>Cài đặt bản quyền</translation>
+    </message>
+    <message>
+      <source>Online tracking</source>
+      <translation>Theo dõi trực tuyến</translation>
+    </message>
+    <message>
+      <source>Visitor activity</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Workflow</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat configuration</source>
+      <translation>Cấu hình trò chuyện</translation>
+    </message>
+    <message>
+      <source>List chat configuration</source>
+      <translation>Cấu hình danh sách trò chuyện </translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/pendingchats</name>
+    <message>
+      <source>Information</source>
+      <translation>Thông tin</translation>
+    </message>
+    <message>
+      <source>Status</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Open in a new window</source>
+      <translation>Mở trong một cửa sổ mới</translation>
+    </message>
+    <message>
+      <source>Reject chat</source>
+      <translation>Từ chối trò chuyện</translation>
+    </message>
+    <message>
+      <source>Pending chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Closed chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chatbox chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operators chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>Rỗng...</translation>
+    </message>
+    <message>
+      <source>Chats list</source>
+      <translation>Danh sách các cuộc trò chuyện</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/activechats</name>
+    <message>
+      <source>Close chat</source>
+      <translation>Kết thúc trò chuyện </translation>
+    </message>
+    <message>
+      <source>Delete chat</source>
+      <translation>Xoá trò chuyện</translation>
+    </message>
+    <message>
+      <source>Open in a new window</source>
+      <translation>Mở trong một cửa sổ mới</translation>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>Rỗng...</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/closedchats</name>
+    <message>
+      <source>Delete chat</source>
+      <translation>Xóa trò chuyện</translation>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>Rỗng...</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/lists/search_panel</name>
+    <message>
+      <source>Delete selected</source>
+      <translation>Xóa mục được chọn</translation>
+    </message>
+    <message>
+      <source>Nick</source>
+      <translation>Định danh</translation>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Date range from to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation>Phòng ban</translation>
+    </message>
+    <message>
+      <source>User</source>
+      <translation>Người dùng</translation>
+    </message>
+    <message>
+      <source>Vote status</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Any</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Not Voted</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Up Voted</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Down vote</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat status</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Pending chats</source>
-      <translation>Cuộc trò chuyện đang chờ</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Active chats</source>
-      <translation>Các cuộc trò chuyện</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Closed chats</source>
-      <translation>Kết thúc cuộc trò chuyện</translation>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chatbox chats</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Operators chats</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Chats with unread messages</source>
-      <translation>Cuộc trò chuyện với các tin nhắn chưa đọc</translation>
+      <source>Has unread messages</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Chat lists</source>
-      <translation>Danh sách trò chuyện </translation>
+      <source>Search</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Print</source>
+      <translation>In</translation>
+    </message>
+    <message>
+      <source>XLS</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>XLS (with content)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Select department</source>
+      <translation>Chọn bộ phận</translation>
+    </message>
+    <message>
+      <source>Select user</source>
+      <translation>Chọn người dùng</translation>
+    </message>
+    <message>
+      <source>Type to search</source>
+      <translation>Nhập để tìm kiếm</translation>
+    </message>
+    <message>
+      <source>Choose department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Group by</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Month</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Day</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Group results by operator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Minimum chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Optional</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -3743,7 +3920,7 @@
       <translation>Khách trực tuyến</translation>
     </message>
     <message>
-      <source>Transfered chats</source>
+      <source>Transferred chats</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3783,11 +3960,11 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Settings</source>
+      <source>Dashboard</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Dashboard</source>
+      <source>Settings</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3800,6 +3977,10 @@
     </message>
     <message>
       <source>Chat tabs</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Configuration</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3855,48 +4036,6 @@
     <message>
       <source>Chats duration was updated</source>
       <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>chat/operatorschats</name>
-    <message>
-      <source>Operators chats list</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Operators chats</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>chat/pendingchats</name>
-    <message>
-      <source>Pending chats list</source>
-      <translation>Danh sách các cuộc trò chuyện đang chờ </translation>
-    </message>
-    <message>
-      <source>Information</source>
-      <translation>Thông tin</translation>
-    </message>
-    <message>
-      <source>Open in a new window</source>
-      <translation>Mở trong một cửa sổ mới</translation>
-    </message>
-    <message>
-      <source>Reject chat</source>
-      <translation>Từ chối trò chuyện</translation>
-    </message>
-    <message>
-      <source>Empty...</source>
-      <translation>Rỗng...</translation>
-    </message>
-    <message>
-      <source>Chats list</source>
-      <translation>Danh sách các cuộc trò chuyện</translation>
-    </message>
-    <message>
-      <source>Pending chats</source>
-      <translation>Đang chờ cuộc trò chuyện</translation>
     </message>
   </context>
   <context>
@@ -4334,21 +4473,6 @@
     </message>
   </context>
   <context>
-    <name>chat/unreadchats</name>
-    <message>
-      <source>Unread chats list</source>
-      <translation>Danh sách cuộc trò chuyện chưa đọc</translation>
-    </message>
-    <message>
-      <source>Information</source>
-      <translation>Thông tin</translation>
-    </message>
-    <message>
-      <source>Empty...</source>
-      <translation>Rỗng...</translation>
-    </message>
-  </context>
-  <context>
     <name>chat/modifychat</name>
     <message>
       <source>Modify chat</source>
@@ -4364,7 +4488,7 @@
     </message>
     <message>
       <source>Nick</source>
-      <translation type="unfinished"/>
+      <translation>Định danh</translation>
     </message>
     <message>
       <source>Phone</source>
@@ -4518,7 +4642,7 @@
     </message>
     <message>
       <source>Cancel</source>
-      <translation>Thôi</translation>
+      <translation>Hủy</translation>
     </message>
     <message>
       <source>Settings updated</source>
@@ -4667,19 +4791,19 @@
   <context>
     <name>chat/userjoined</name>
     <message>
-      <source>User has joined the chat!</source>
-      <translation>Người dùng đã tham gia trò chuyện!</translation>
+      <source>Visitor has joined the chat!</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>User has joined the chat from popup chat window!</source>
+      <source>Visitor has joined the chat from popup chat window!</source>
       <translation type="unfinished"/>
     </message>
   </context>
   <context>
     <name>chat/userleftchat</name>
     <message>
-      <source>User has left the chat!</source>
-      <translation>Dùng rời khỏi cuộc trò chuyện!</translation>
+      <source>Visitor has left the chat!</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -5232,7 +5356,7 @@
     </message>
     <message>
       <source>Please enter a username!</source>
-      <translation>Vui lòng nhập tên người dùng!</translation>
+      <translation>Vui lòng nhập tên đăng nhập</translation>
     </message>
     <message>
       <source>User exists!</source>
@@ -5317,7 +5441,7 @@
     </message>
     <message>
       <source>Please enter your email address!</source>
-      <translation>Vui lòng nhập địa chỉ email của bạn!</translation>
+      <translation>Vui lòng nhập địa chỉ email của bạn</translation>
     </message>
   </context>
   <context>
@@ -5554,7 +5678,7 @@
     </message>
     <message>
       <source>IP</source>
-      <translation type="unfinished"/>
+      <translation>Địa chỉ Internet</translation>
     </message>
     <message>
       <source>View</source>
@@ -5679,8 +5803,8 @@
   <context>
     <name>permission/editrole</name>
     <message>
-      <source>Role edit</source>
-      <translation>Chỉnh sửa vai trò</translation>
+      <source>Edit role</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Title</source>
@@ -5753,6 +5877,10 @@
     <message>
       <source>List of roles</source>
       <translation>Danh sách các vai trò</translation>
+    </message>
+    <message>
+      <source>Role edit</source>
+      <translation>Chỉnh sửa vai trò</translation>
     </message>
   </context>
   <context>
@@ -6234,7 +6362,7 @@
     </message>
     <message>
       <source>Department</source>
-      <translation type="unfinished"/>
+      <translation>Bộ phận</translation>
     </message>
     <message>
       <source>Operator</source>
@@ -6257,35 +6385,35 @@
     <name>survey/fill</name>
     <message>
       <source>star</source>
-      <translation type="unfinished"/>
+      <translation>star</translation>
     </message>
     <message>
       <source>stars</source>
-      <translation type="unfinished"/>
+      <translation>stars</translation>
     </message>
     <message>
       <source>Preview chat</source>
-      <translation type="unfinished"/>
+      <translation>Xem lại cuộc đối thoại</translation>
     </message>
     <message>
       <source>How well did we do?</source>
-      <translation type="unfinished"/>
+      <translation>Dịch vụ của chúng tôi như thế nào ?</translation>
     </message>
     <message>
       <source>Poor</source>
-      <translation type="unfinished"/>
+      <translation>Tệ</translation>
     </message>
     <message>
       <source>Excellent</source>
-      <translation type="unfinished"/>
+      <translation>Xuất sắc</translation>
     </message>
     <message>
       <source>Thank you for your feedback...</source>
-      <translation type="unfinished"/>
+      <translation>Cảm ơn đánh giá của bạn</translation>
     </message>
     <message>
       <source>Please complete this short evaluation survey</source>
-      <translation type="unfinished"/>
+      <translation>Vui lòng hoàn tất bảng đánh giá ngắn gọn sau đây</translation>
     </message>
   </context>
   <context>
@@ -6479,8 +6607,8 @@
       <translation>Múi giờ mặc định máy chủ</translation>
     </message>
     <message>
-      <source>User edit</source>
-      <translation>chỉnh sửa người dùng </translation>
+      <source>Edit user</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Do not enter a password unless you want to change it</source>
@@ -6524,7 +6652,7 @@
     </message>
     <message>
       <source>Cancel</source>
-      <translation>Thôi</translation>
+      <translation>Hủy</translation>
     </message>
     <message>
       <source>Assigned departments</source>
@@ -6561,6 +6689,10 @@
     <message>
       <source>Users</source>
       <translation>Người dùng</translation>
+    </message>
+    <message>
+      <source>User edit</source>
+      <translation>chỉnh sửa người dùng </translation>
     </message>
   </context>
   <context>
@@ -6754,7 +6886,7 @@
     </message>
     <message>
       <source>Please enter a username</source>
-      <translation>Xin vui lòng nhập tên người dùng</translation>
+      <translation>Vui lòng nhập tên hiển thị bạn đã đăng kí</translation>
     </message>
     <message>
       <source>User exists</source>
@@ -7106,7 +7238,7 @@
     </message>
     <message>
       <source>IP</source>
-      <translation type="unfinished"/>
+      <translation>Địa chỉ Internet</translation>
     </message>
     <message>
       <source>Operator</source>
@@ -7114,7 +7246,7 @@
     </message>
     <message>
       <source>Department</source>
-      <translation type="unfinished"/>
+      <translation>Bộ phận</translation>
     </message>
     <message>
       <source>Date</source>
@@ -7383,6 +7515,32 @@
     </message>
   </context>
   <context>
+    <name>chat/voteaction</name>
+    <message>
+      <source>User has updated his profile information</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Thumbs up</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Thumbs down</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Removed thumb vote</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>chat/refreshcustomfields</name>
+    <message>
+      <source>Data refreshed</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>chat/reopenchat</name>
     <message>
       <source>has reopened the chat!</source>
@@ -7419,25 +7577,6 @@
     </message>
   </context>
   <context>
-    <name>chat/voteaction</name>
-    <message>
-      <source>User has updated his profile information</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Thumbs up</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Thumbs down</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Removed thumb vote</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
     <name>chatarchive/viewarchivedchat</name>
     <message>
       <source>View archived chat</source>
@@ -7449,24 +7588,6 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Vui lòng nhập loại tệp tin!</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/editnick</name>
-    <message>
-      <source>Your information</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Updated!</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>chat/chatpreview</name>
-    <message>
-      <source>Chat preview</source>
-      <translation type="unfinished"/>
     </message>
   </context>
 </TS>

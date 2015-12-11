@@ -129,8 +129,8 @@ function lh(){
     this.tabIconContent = 'face';
     this.tabIconClass = 'icon-user-status material-icons icon-user-online';
     
-    this.addTab = function(tabs, url, name, chat_id) {    	    	
-    	tabs.find('> ul').append('<li role="presentation" class="active" id="chat-tab-li-'+chat_id+'" ><a href="#chat-id-'+chat_id+'" id="chat-tab-link-'+chat_id+'" aria-controls="chat-id-'+chat_id+'" role="tab" data-toggle="tab"><i id="user-chat-status-'+chat_id+'" class="'+this.tabIconClass+'">'+this.tabIconContent+'</i>' + name.replace(/</g,'&lt;').replace(/>/g,'&gt;') + '<span onclick="return lhinst.removeDialogTab('+chat_id+',$(\'#tabs\'),true)" class="material-icons icon-close-chat">close</span></a></li>')
+    this.addTab = function(tabs, url, name, chat_id, focusTab) {    	    	
+    	tabs.find('> ul').append('<li role="presentation" id="chat-tab-li-'+chat_id+'" ><a href="#chat-id-'+chat_id+'" id="chat-tab-link-'+chat_id+'" aria-controls="chat-id-'+chat_id+'" role="tab" data-toggle="tab"><i id="user-chat-status-'+chat_id+'" class="'+this.tabIconClass+'">'+this.tabIconContent+'</i>' + name.replace(/</g,'&lt;').replace(/>/g,'&gt;') + '<span onclick="return lhinst.removeDialogTab('+chat_id+',$(\'#tabs\'),true)" class="material-icons icon-close-chat">close</span></a></li>')
     	
     	$('#chat-tab-link-'+chat_id).click(function() {
     		var inst = $(this);
@@ -143,11 +143,19 @@ function lh(){
     		
     	});
     	
+    	var hash = window.location.hash.replace('#/','#');	
+    	
     	$.get(url, function(data) {
-    		tabs.find('> ul > li.active').removeClass("active");
-    		tabs.find('> ul > #chat-tab-li-'+chat_id).addClass("active");
-    		tabs.find('> div.tab-content > div.active').removeClass('active');
-    		tabs.find('> div.tab-content').append('<div role="tabpanel" class="tab-pane active" id="chat-id-'+chat_id+'"></div>');    		
+    		if (typeof focusTab === 'undefined' || focusTab === true || hash == '#chat-id-'+chat_id){
+	    		tabs.find('> ul > li.active').removeClass("active");
+	    		tabs.find('> ul > #chat-tab-li-'+chat_id).addClass("active");
+	    		tabs.find('> div.tab-content > div.active').removeClass('active');
+	    		tabs.find('> div.tab-content').append('<div role="tabpanel" class="tab-pane active" id="chat-id-'+chat_id+'"></div>'); 
+	    		window.location.hash = '#/chat-id-'+chat_id;	
+	    	} else {
+	    		tabs.find('> div.tab-content').append('<div role="tabpanel" class="tab-pane" id="chat-id-'+chat_id+'"></div>');  
+	    	}
+    		 		
     		$('#chat-id-'+chat_id).html(data);  
     		$('#CSChatMessage-'+chat_id).focus();
     	});
@@ -160,14 +168,21 @@ function lh(){
     	});
     };
 
-    this.startChat = function (chat_id,tabs,name) {
-        if ( this.chatUnderSynchronization(chat_id) == false ) {
+    this.startChat = function (chat_id,tabs,name,focusTab) {
+        if ( this.chatUnderSynchronization(chat_id) == false ) {        	
+        	var focusTabAction = typeof focusTab !== 'undefined' ? focusTab : true;
         	var rememberAppend = this.disableremember == false ? '/(remember)/true' : '';
-        	this.addTab(tabs, this.wwwDir +'chat/adminchat/'+chat_id+rememberAppend, name, chat_id);
+        	this.addTab(tabs, this.wwwDir +'chat/adminchat/'+chat_id+rememberAppend, name, chat_id, focusTabAction);
         	var inst = this;
         	 setTimeout(function(){
      	    	inst.syncadmininterfacestatic();
      	    },1000);
+        } else {
+        	tabs.find('> ul > li.active').removeClass("active");
+    		tabs.find('> ul > #chat-tab-li-'+chat_id).addClass("active");
+    		tabs.find('> div.tab-content > div.active').removeClass('active');
+    		tabs.find('> div.tab-content > #chat-id-'+chat_id).addClass('active');  
+    		window.location.hash = '#/chat-id-'+chat_id;
         }
     };
 
@@ -566,8 +581,9 @@ function lh(){
 		    var themeWindow = this.theme !== null ? '/(theme)/'+this.theme : '';
 		    var modeEmbed = this.isEmbedMode == true ? '/(modeembed)/embed' : '';
 		    var fillType = this.isWidgetMode == true ? 'fillwidget' : 'fill';
+		    var explicitClose =  this.explicitClose == true ? '/(eclose)/t' : '';
 		    
-		    document.location = this.wwwDir + 'survey/'+fillType+'/(survey)/' + this.survey + '/(chatid)/' +this.chat_id + '/(hash)/'+ this.hash + modeWindow + operatorTyping + themeWindow + modeEmbed;
+		    document.location = this.wwwDir + 'survey/'+fillType+'/(survey)/' + this.survey + '/(chatid)/' +this.chat_id + '/(hash)/'+ this.hash + modeWindow + operatorTyping + themeWindow + modeEmbed + explicitClose;
     	}
     };
     
@@ -635,9 +651,13 @@ function lh(){
 			var index = tabs.find('> ul > #chat-tab-li-'+chat_id).index();
 	    	tabs.find('> ul > #chat-tab-li-'+chat_id).remove();
 	    	tabs.find('#chat-id-'+chat_id).remove();	    	
-	    	tabs.find('> ul > li:eq('+ (index - 1)+')').addClass('active');
-	    	tabs.find('> div.tab-content > div:eq(' + (index - 1) + ')').addClass("active");
-			
+	    	var link = tabs.find('> ul > li:eq('+ (index - 1)+') > a');
+	    	link.tab('show');
+	    	
+	    	setTimeout(function() {
+	    		window.location.hash = link.attr('href').replace('#','#/');
+	    	},500);
+	    	
 	        if (this.closeWindowOnChatCloseDelete == true)
 	        {
 	            window.close();
@@ -703,9 +723,12 @@ function lh(){
 	    	tabs.find('#chat-id-'+chat_id).remove();	
 	    	
 	    	if (!tabs.find('> ul > li.active').length) {
-                tabs.find('> ul > li:eq(' + (index - 1) + ')').addClass('active');
-                tabs.find('> div.tab-content > div:eq(' + (index - 1) + ')').addClass("active");
+                tabs.find('> ul > li:eq(' + (index - 1) + ') > a').tab('show');             
             }
+	    	
+	    	setTimeout(function() {
+	    		window.location.hash = tabs.find('> ul > li:eq(' + (index - 1) + ') > a').attr('href').replace('#','#/');
+	    	},500);
 	    	
 	        if (this.closeWindowOnChatCloseDelete == true)
 	        {
@@ -753,9 +776,12 @@ function lh(){
 			var index = tabs.find('> ul > #chat-tab-li-'+chat_id).index();
 	    	tabs.find('> ul > #chat-tab-li-'+chat_id).remove();
 	    	tabs.find('#chat-id-'+chat_id).remove();	    	
-	    	tabs.find('> ul > li:eq('+ (index - 1)+')').addClass('active');
-	    	tabs.find('> div.tab-content > div:eq(' + (index - 1) + ')').addClass("active");
+	    	var link = tabs.find('> ul > li:eq('+ (index - 1)+') > a');
+	    	link.tab('show');
 	    	
+	    	setTimeout(function() {
+	    		window.location.hash = link.attr('href').replace('#','#/');
+	    	},500);
 	    	
 	        if (this.closeWindowOnChatCloseDelete == true)
 	        {
@@ -952,10 +978,23 @@ function lh(){
 	this.userclosedchatembed = function()
 	{
 	    if (!!window.postMessage) {
-	    	parent.postMessage("lhc_close", '*');
+	    	parent.postMessage("lhc_chat_closed_explicit", '*');
 	    };
 	};
-
+	
+	this.explicitClose = false;
+	
+	this.explicitChatCloseByUser = function()
+	{
+		this.explicitClose = true;
+		
+		if (this.isWidgetMode && typeof(parent) !== 'undefined' && window.location !== window.parent.location) {		   			 
+	 		 parent.postMessage('lhc_chat_closed_explicit', '*');
+		} else {
+			this.chatClosed();
+		}
+	};
+	
 	this.restoreWidget = function(hash){
 		 if (!!window.postMessage && window.opener) { 	    	          	    
  	    	window.opener.postMessage("lhc_ch:hash:"+hash, '*');
@@ -971,7 +1010,7 @@ function lh(){
 	   		LHCCallbacks.userleftchatNotification(this.chat_id);
 	    };
     
-		$.get(this.wwwDir + this.userclosechaturl + this.chat_id + '/' + this.hash,function(data){
+		$.get(this.wwwDir + this.userclosechaturl + this.chat_id + '/' + this.hash + '/(eclose)/t',function(data){
 			lhinst.closeWindow();
 	    });
 	};
@@ -1253,7 +1292,11 @@ function lh(){
 	        	                      } else if (item.us == 3) {
 	        	                    	  $('#user-chat-status-'+item.chat_id).addClass('icon-user-pageview');
 	        	                      }
-	        	                      
+	        	                     
+	        	                      if (typeof item.uc != 'undefined' && item.uc == 'true') {
+	        	                    	  $('#user-chat-status-'+item.chat_id).addClass('icon-user-closed-chat');
+	        	                      }
+
 	        	                      if (typeof item.oad != 'undefined') {	        	                    
 	        	                    	  eval(item.oad);
 	        	                      };
@@ -1760,7 +1803,12 @@ function lh(){
 		        		$('#CSChatMessage').val(pdata.msg);
 		        		var instStatus = $('#id-operator-typing');
 						instStatus.html(data.r);
-						instStatus.css('visibility','visible');				
+						instStatus.css('visibility','visible');	
+						setTimeout(function(){
+							if (inst.operatorTyping == false){
+								$('#id-operator-typing').css('visibility','hidden');
+	        			    }
+						},3000);
 		        	}
 		        	
 		        	inst.addingUserMessage = false;
@@ -1976,7 +2024,7 @@ function lh(){
     		    	
     		    	var keyUpStarted = inst.attr('key-up-started') == 1;
     		    	
-    		  		if (keyUpStarted == false) {
+    		  		if (keyUpStarted == true) {
     		  			jQuery('<div/>', {
     	    			    'class': 'message-row response',					   
     	    			    text: $('#id_Question').val()

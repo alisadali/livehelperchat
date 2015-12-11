@@ -234,7 +234,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
 
             if ( !$form->hasValidData( 'DefaultDepartament' ) || $form->DefaultDepartament == '')
             {
-                $Errors[] = 'Please enter default departament name';
+                $Errors[] = 'Please enter default department name';
             }
 
             if (count($Errors) == 0) {
@@ -402,9 +402,20 @@ switch ((int)$Params['user_parameters']['step_id']) {
                  `noonline_operators_offline` varchar(250) NOT NULL,
                  `hide_close` int(11) NOT NULL,
                  `hide_popup` int(11) NOT NULL,
+                 `show_need_help` int(11) NOT NULL DEFAULT '1',
+                 `show_need_help_timeout` int(11) NOT NULL DEFAULT '24',
                  `header_height` int(11) NOT NULL,
                  `header_padding` int(11) NOT NULL,
                  `widget_border_width` int(11) NOT NULL,
+                 `show_voting` tinyint(1) NOT NULL DEFAULT '1',
+                 `department_title` varchar(250) NOT NULL,
+                 `department_select` varchar(250) NOT NULL,
+                 `buble_visitor_background` varchar(250) NOT NULL,
+                 `buble_visitor_title_color` varchar(250) NOT NULL,
+                 `buble_visitor_text_color` varchar(250) NOT NULL,
+                 `buble_operator_background` varchar(250) NOT NULL,
+                 `buble_operator_title_color` varchar(250) NOT NULL,
+                 `buble_operator_text_color` varchar(250) NOT NULL,
                   PRIMARY KEY (`id`)				
 				) DEFAULT CHARSET=utf8;");
 
@@ -1032,6 +1043,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  `na_cb_execute` tinyint(1) NOT NULL,
 				  `inform_unread` tinyint(1) NOT NULL,
 				  `active_balancing` tinyint(1) NOT NULL,
+				  `visible_if_online` tinyint(1) NOT NULL,
 				  `start_hour` int(2) NOT NULL,
 				  `end_hour` int(2) NOT NULL,
 				  `inform_close` int(11) NOT NULL,

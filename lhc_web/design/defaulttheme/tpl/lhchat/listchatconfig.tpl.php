@@ -6,19 +6,11 @@
 
 <form action="" method="post">
 
-
 <div role="tabpanel">
+
 		<!-- Nav tabs -->
 		<ul class="nav nav-tabs" role="tablist">
-			<li role="presentation" class="active"><a href="#notifications" aria-controls="notifications" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/listchatconfig','Notifications about new chats');?></a></li>
-			<?php if ($currentUser->hasAccessTo('lhchat','administrateconfig')) : ?>
-			<li role="presentation"><a href="#copyright" aria-controls="copyright" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/listchatconfig','Copyright settings');?></a></li>
-			<li role="presentation"><a href="#onlinetracking" aria-controls="onlinetracking" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/listchatconfig','Online tracking');?></a></li>
-			<li role="presentation"><a href="#misc" aria-controls="misc" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/listchatconfig','Misc');?></a></li>
-			<li role="presentation"><a href="#visitoractivity" aria-controls="visitoractivity" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/listchatconfig','Visitor activity');?></a></li>
-			<li role="presentation"><a href="#workflow" aria-controls="workflow" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/listchatconfig','Workflow');?></a></li>
-			<?php include(erLhcoreClassDesign::designtpl('lhchat/listchatconfig/screen_sharing_tab.tpl.php'));?>
-			<?php endif;?>
+		    <?php include(erLhcoreClassDesign::designtpl('lhchat/listchatconfig_tabs/links.tpl.php'));?>
 		</ul>
 
 		<!-- Tab panes -->
@@ -64,8 +56,7 @@
 			    <?php $attribute = 'ignorable_ip'; ?>
     		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>	
     		    
-    		    <?php $attribute = 'banned_ip_range'; ?>
-    		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>	
+    		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/listchatconfig/banned_ip_range.tpl.php'));?>
     		    		
     		    <?php $attribute = 'track_online_visitors';$boolValue = true;?>
     		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>		
@@ -102,7 +93,7 @@
 			</div>
 			
 			<div role="tabpanel" class="tab-pane" id="misc">
-			    <h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/listchatconfig','Cookie related');?></h4>		    		    
+			    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/listchatconfig/text_cookie_related.tpl.php'));?>		    		    
     		    <?php $attribute = 'track_domain'?>
     		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
     		    		    		    
@@ -118,7 +109,7 @@
     		    <?php $attribute = 'session_captcha';$boolValue = true;?>
     		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
     		    
-    		    <h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/listchatconfig','Chat related');?></h4>
+    		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/listchatconfig/text_chat_related.tpl.php'));?>
     		    <?php $attribute = 'list_online_operators';$boolValue = true;?>
     		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
     		    
@@ -139,10 +130,7 @@
     		    		    
     		    <?php $attribute = 'allow_reopen_closed';$boolValue = true;?>
     		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
-    		   		   		    
-    		    <?php $attribute = 'track_is_online';$boolValue = true;?>
-    		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
-    		     		    
+    		   			     		    
     		    <?php $attribute = 'min_phone_length';?>
     		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
     		    
@@ -170,21 +158,15 @@
     		    <?php $attribute = 'hide_disabled_department';$boolValue = true;?>
     		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
     		    
-    		    <?php $attribute = 'front_tabs'; 
-    		    $configExplain = erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Supported: dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_chats,closed_chats,online_operators');?>
-    		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
+    		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/listchatconfig/front_tabs.tpl.php'));?>
+   		    
+                <?php include(erLhcoreClassDesign::designtpl('lhchat/part/listchatconfig/hide_right_column_frontpage.tpl.php'));?>
     		    
-    		    <?php $attribute = 'hide_right_column_frontpage';$boolValue = true;?>
-    		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
+    		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/listchatconfig/dashboard_order.tpl.php'));?>
     		    
-    		    <?php $attribute = 'dashboard_order';
-    		    $configExplain = erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Supported: online_operators, departments_stats, online_visitors, pending_chats, unread_chats, transfered_chats, active_chats, closed_chats');?>
-    		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
+    		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/listchatconfig/suggest_leave_msg.tpl.php'));?>
     		    
-    		    <?php $attribute = 'suggest_leave_msg';$boolValue = true;?>
-    		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
-    		    
-    		    <h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/listchatconfig','Misc');?></h4>
+    		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/listchatconfig/text_misc.tpl.php'));?>
     		    <?php $attribute = 'voting_days_limit'?>
     		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
     		     
@@ -209,7 +191,7 @@
 						
 			<div role="tabpanel" class="tab-pane" id="visitoractivity">
 			 
-			    <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation("chat/listchatconfig","This determines should status widget change it's status once operator logins. Recommended value 290");?></p>
+                <?php include(erLhcoreClassDesign::designtpl('lhchat/part/listchatconfig/text_widget_change_status.tpl.php'));?>
 			    
 			    <?php $attribute = 'checkstatus_timeout'?>
     		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
@@ -226,7 +208,7 @@
     		   	
     		   	<?php $systemconfig = erLhcoreClassModelChatConfig::fetch('online_if');?>	  
     		    <div class="form-group"> 
-        		    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/listchatconfig','Online if');?></label>
+        		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/listchatconfig/label_online_if.tpl.php'));?>
         		    <select class="form-control" name="online_ifValueParam">
         		          <option value="0" <?php echo $systemconfig->value == 0 ? 'selected="selected"' : ''?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/listchatconfig','(Widget is open) or (closed and user has activity in last 5 minutes and ping respond)');?></option>    		        
         		          <option value="1" <?php echo $systemconfig->value == 1 ? 'selected="selected"' : ''?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/listchatconfig','(Widget is open or closed) and (user has activity in last 5 minutes and ping respond)');?></option>
@@ -236,8 +218,7 @@
 			</div>
 						
 			<div role="tabpanel" class="tab-pane" id="workflow">
-			    <?php $attribute = 'run_unaswered_chat_workflow'?>
-    		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
+                <?php include(erLhcoreClassDesign::designtpl('lhchat/part/listchatconfig/run_unaswered_chat_workflow.tpl.php'));?>
     		    
     		    <?php $attribute = 'run_departments_workflow';$boolValue = true;?>
     		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>

@@ -24,6 +24,22 @@ return array(
    						'validation_definition' => new ezcInputFormDefinitionElement(
    								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
    						)),   			
+   				'show_need_help_timeout' => array(
+   						'type' => 'text',
+   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Need help tooltip timeout, after how many hours show again tooltip?'),
+   						'required' => false,   
+   						'hidden' => true,
+   						'validation_definition' => new ezcInputFormDefinitionElement(
+   								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+   						)),   			
+   				'show_need_help' => array(
+   				        'type' => 'checkbox',
+   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Show need help tooltip?'),
+   						'required' => false,
+   						'hidden' => true,   						
+   						'validation_definition' => new ezcInputFormDefinitionElement(
+   								ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+   						)),  			
    				'need_help_text' => array(
    						'type' => 'text',
    						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Need help standard text'),
@@ -261,7 +277,7 @@ return array(
    						)),
    				'support_joined' => array(
    						'type' => 'text',
-   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Text then user starts chat based on proactive invitation'),
+   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Text when user starts chat based on proactive invitation'),
    						'required' => false,
    				        'placeholder' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/checkchatstatus','A support staff member has joined this chat'),
    						'hidden' => true,
@@ -270,7 +286,7 @@ return array(
    						)),    
    				'support_closed' => array(
    						'type' => 'text',
-   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Text then operator closes a chat'),
+   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Text when operator closes a chat'),
    						'required' => false,
    				        'placeholder' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/checkchatstatus','A support staff member has closed this chat'),
    						'hidden' => true,
@@ -279,8 +295,8 @@ return array(
    						)),    
    				'pending_join' => array(
    						'type' => 'text',
-   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Text then user starts a chat and is waiting for operator to join a chat'),
-   				        'placeholder' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/checkchatstatus','Pending a support staff member to join, you can write your questions, and as soon as a support staff member confirms this chat, he will get your messages'),
+   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Text when user starts a chat and is waiting for operator to join a chat'),
+   				        'placeholder' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/checkchatstatus','Pending a support staff member to join, you can write your questions, and as soon as a support staff member confirms this chat, they will get your messages'),
    						'required' => false,
    						'hidden' => true,
    						'validation_definition' => new ezcInputFormDefinitionElement(
@@ -288,7 +304,7 @@ return array(
    						)),    
    				'noonline_operators' => array(
    						'type' => 'text',
-   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Text then user starts a chat but department is offline'),
+   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Text when user starts a chat but department is offline'),
    				        'placeholder' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/checkchatstatus','At this moment there are no logged in support staff members, but you can leave your messages'),
    						'required' => false,
    						'hidden' => true,
@@ -423,6 +439,84 @@ return array(
            		        'validation_definition' => new ezcInputFormDefinitionElement(
            		            ezcInputFormDefinitionElement::OPTIONAL, 'callback','erLhcoreClassSearchHandler::isImageFile()'
    		        )),
+                // Visitor messages style
+                'buble_visitor_background' => array(
+                    'type' => 'colorpicker',
+                    'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Visitor buble background color'),
+                    'required' => false,
+                    'hidden' => true,
+                    'validation_definition' => new ezcInputFormDefinitionElement(
+                        ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+                )),
+                'buble_visitor_title_color' => array(
+                    'type' => 'colorpicker',
+                    'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Visitor title color'),
+                    'required' => false,
+                    'hidden' => true,
+                    'validation_definition' => new ezcInputFormDefinitionElement(
+                        ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+                )),
+                'buble_visitor_text_color' => array(
+                    'type' => 'colorpicker',
+                    'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Visitor text color'),
+                    'required' => false,
+                    'hidden' => true,
+                    'validation_definition' => new ezcInputFormDefinitionElement(
+                        ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+                )),
+                // Operator messages style
+                'buble_operator_background' => array(
+                    'type' => 'colorpicker',
+                    'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Operator buble background color'),
+                    'required' => false,
+                    'hidden' => true,
+                    'validation_definition' => new ezcInputFormDefinitionElement(
+                        ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+                )),
+                'buble_operator_title_color' => array(
+                    'type' => 'colorpicker',
+                    'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Operator title color'),
+                    'required' => false,
+                    'hidden' => true,
+                    'validation_definition' => new ezcInputFormDefinitionElement(
+                        ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+                )),
+                'buble_operator_text_color' => array(
+                    'type' => 'colorpicker',
+                    'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Operator text color'),
+                    'required' => false,
+                    'hidden' => true,
+                    'validation_definition' => new ezcInputFormDefinitionElement(
+                        ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+                )),
+    
+                // General chat settings
+                'show_voting' => array(
+                    'type' => 'checkbox',
+                    'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Show voting thumbs?'),
+                    'required' => false,
+                    'hidden' => true,
+                    'validation_definition' => new ezcInputFormDefinitionElement(
+                        ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+                )),
+                'department_title' => array(
+                    'type' => 'text',
+                    'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Use different title for department? E.g Location'),
+                    'placeholder' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Location'),
+                    'required' => false,
+                    'hidden' => true,
+                    'validation_definition' => new ezcInputFormDefinitionElement(
+                        ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+                )),
+                'department_select' => array(
+                    'type' => 'text',
+                    'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Additional option before department selection'),
+                    'placeholder' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Choose department'),
+                    'required' => false,
+                    'hidden' => true,
+                    'validation_definition' => new ezcInputFormDefinitionElement(
+                        ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+                )),
    		);
 
 ?>

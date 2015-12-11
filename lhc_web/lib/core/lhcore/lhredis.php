@@ -7,10 +7,16 @@ class erLhcoreClassLhRedis
     public function __construct()
     {
         try {
-            $params = erConfigClassLhConfig::getInstance()->getSetting( 'redis', 'server' );
+            $params = erConfigClassLhConfig::getInstance()->getSetting( 'redis', 'server');
             $this->redis = new Redis();
-	        $this->redis->connect($params['host'], $params['port'], 2.5);	
-	        $this->redis->setOption(Redis::OPT_SERIALIZER, Redis::SERIALIZER_PHP); 
+	        $this->redis->connect($params['host'], $params['port'], 2.5);
+	        $this->redis->setOption(Redis::OPT_SERIALIZER, Redis::SERIALIZER_PHP);
+
+            //select database by index
+            if (isset($params['database'])) {
+                $this->redis->select($params['database']);
+            }
+            
         } catch (Exception $e){
             // Do nothing
         }
@@ -21,7 +27,7 @@ class erLhcoreClassLhRedis
      * */
     public function set($key, $value, $compress, $ttl = 0)
     {
-        if ($ttl == 0){
+        if ($ttl == 0) {
             $this->redis->setex($key,2678400,$value); // One month
         } else {
             $this->redis->setex($key,$ttl,$value);

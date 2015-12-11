@@ -42,13 +42,13 @@ $columnSize = 12 / $columnsTotal;
                      
                 <?php elseif ($wiget == 'online_visitors') : ?>
                 
-                     <?php if ($online_visitors_enabled_pre == true) : ?>
+                     <?php if ($online_visitors_enabled_pre == true && $currentUser->hasAccessTo('lhchat', 'use_onlineusers') == true) : ?>
                         <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/online_visitors.tpl.php'));?>
                      <?php endif;?>
                     
                 <?php elseif ($wiget == 'departments_stats') : ?>
                 
-                    <?php if ($online_chat_enabled_pre == true) : ?>
+                    <?php if ($online_chat_enabled_pre == true && $canseedepartmentstats == true) : ?>
                         <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/departments_stats.tpl.php'));?>
                     <?php endif;?>
                     
@@ -80,11 +80,8 @@ $columnSize = 12 / $columnsTotal;
                 <?php else : ?>
                     <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/extension_panel_multiinclude.tpl.php'));?>
                 <?php endif;?>
-            <?php endforeach;?>
+            <?php endforeach;?>           
             
-            <?php if (empty($widgets)) : ?>
-            &nbsp;
-            <?php endif;?>
         </div>
      <?php endfor;?>
 </div>

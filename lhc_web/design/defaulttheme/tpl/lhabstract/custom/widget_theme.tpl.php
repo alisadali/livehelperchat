@@ -20,8 +20,9 @@
         	<ul class="nav nav-tabs" role="tablist">
         		<li role="presentation" class="active"><a href="#statuswidget" aria-controls="statuswidget" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Status widget style');?></a></li>
         		<li role="presentation"><a href="#widgetcontainer" aria-controls="widgetcontainer" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Widget container');?></a></li>
+        		<li role="presentation"><a href="#messagesstyle" aria-controls="messagesstyle" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Messages style');?></a></li>
         		<li role="presentation"><a href="#needhelp" aria-controls="needhelp" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Need help widget');?></a></li>
-        		<li role="presentation"><a href="#widgettexts" aria-controls="widgettexts" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Main widget text');?></a></li>
+        		<li role="presentation"><a href="#widgettexts" aria-controls="widgettexts" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Chat widget');?></a></li>
         		<li role="presentation"><a href="#customcss" aria-controls="customcss" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Custom CSS');?></a></li>
         	</ul>
         
@@ -98,7 +99,54 @@
 						<?php echo erLhcoreClassAbstract::renderInput('explain_text', $fields['explain_text'], $object)?>
 						</div>
 						
-        		</div>
+        		</div>        		
+        		<div role="tabpanel" class="tab-pane" id="messagesstyle">
+                	    <h3><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Live preview')?></h3>
+                	   
+            		    <div id="messages">
+                            <div class="msgBlock" style="" id="messagesBlock">       
+                                <div class="message-row response" style="background-color: #{{bactract_bg_color_buble_visitor_background}};color:#{{bactract_bg_color_buble_visitor_text_color}}" id="msg-10459" data-op-id="0"><div class="msg-date">10:14:39</div><span style="color:#{{bactract_bg_color_buble_visitor_title_color}}" class="usr-tit vis-tit" role="button"><i class="material-icons chat-operators mi-fs15 mr-0">face</i>Visitor</span> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+            		            <div class="message-row message-admin operator-changes" style="background-color: #{{bactract_bg_color_buble_operator_background}};color:#{{bactract_bg_color_buble_operator_text_color}}" id="msg-10463" data-op-id="1">
+            		            <div class="msg-date">10:18:22</div><span style="color:#{{bactract_bg_color_buble_operator_title_color}}"  class="usr-tit op-tit"><i class="material-icons chat-operators mi-fs15 mr-0">account_box</i>Operator</span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+            		        </div>
+                        </div>
+		
+        		        <h3><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Visitor messages style')?></h3>
+        		        
+        		        <div class="form-group">
+        		        <label><?php echo $fields['buble_visitor_background']['trans'];?></label>
+    					<?php echo erLhcoreClassAbstract::renderInput('buble_visitor_background', $fields['buble_visitor_background'], $object)?>		
+    				    </div>
+        		
+        		        <div class="form-group">
+        		        <label><?php echo $fields['buble_visitor_title_color']['trans'];?></label>
+    					<?php echo erLhcoreClassAbstract::renderInput('buble_visitor_title_color', $fields['buble_visitor_title_color'], $object)?>		
+    				    </div>
+        		
+        		        <div class="form-group">
+        		        <label><?php echo $fields['buble_visitor_text_color']['trans'];?></label>
+    					<?php echo erLhcoreClassAbstract::renderInput('buble_visitor_text_color', $fields['buble_visitor_text_color'], $object)?>		
+    				    </div>
+    				    
+    				    <h3><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Operator messages style')?></h3>
+    				    
+        		        <div class="form-group">
+        		        <label><?php echo $fields['buble_operator_background']['trans'];?></label>
+    					<?php echo erLhcoreClassAbstract::renderInput('buble_operator_background', $fields['buble_operator_background'], $object)?>		
+    				    </div>
+    				    
+        		        <div class="form-group">
+        		        <label><?php echo $fields['buble_operator_title_color']['trans'];?></label>
+    					<?php echo erLhcoreClassAbstract::renderInput('buble_operator_title_color', $fields['buble_operator_title_color'], $object)?>		
+    				    </div>
+    				    
+        		        <div class="form-group">
+        		        <label><?php echo $fields['buble_operator_text_color']['trans'];?></label>
+    					<?php echo erLhcoreClassAbstract::renderInput('buble_operator_text_color', $fields['buble_operator_text_color'], $object)?>		
+    				    </div>
+    				   
+					    
+        		</div>        		
         		<div role="tabpanel" class="tab-pane" id="widgetcontainer">
         		
         		        <div class="form-group">
@@ -165,12 +213,21 @@
         		
         		</div>
         		<div role="tabpanel" class="tab-pane" id="needhelp">
-        		
+
+        		        <div class="form-group">
+        		        <label><?php echo erLhcoreClassAbstract::renderInput('show_need_help', $fields['show_need_help'], $object)?><?php echo $fields['show_need_help']['trans'];?></label>
+						</div>
+
+        		        <div class="form-group">
+        		        <label><?php echo $fields['show_need_help_timeout']['trans'];?></label>
+						<?php echo erLhcoreClassAbstract::renderInput('show_need_help_timeout', $fields['show_need_help_timeout'], $object)?>
+						</div>
+
         		        <div class="form-group">
         		        <label><?php echo $fields['need_help_header']['trans'];?></label>
 						<?php echo erLhcoreClassAbstract::renderInput('need_help_header', $fields['need_help_header'], $object)?>
 						</div>
-								
+
 			    		<div class="form-group">    
 						<label><?php echo $fields['need_help_text']['trans'];?></label>
 						<?php echo erLhcoreClassAbstract::renderInput('need_help_text', $fields['need_help_text'], $object)?>		
@@ -213,6 +270,26 @@
         		</div>
         		
         		<div role="tabpanel" class="tab-pane" id="widgettexts">
+        		
+        		    <h3><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','General settings')?></h3>
+        		    
+        		    <div class="form-group">										
+					<label><?php echo $fields['show_voting']['trans'];?></label>
+					<?php echo erLhcoreClassAbstract::renderInput('show_voting', $fields['show_voting'], $object)?>		
+					</div>
+					
+        		    <div class="form-group">										
+					<label><?php echo $fields['department_title']['trans'];?></label>
+					<?php echo erLhcoreClassAbstract::renderInput('department_title', $fields['department_title'], $object)?>		
+					</div>
+					
+        		    <div class="form-group">										
+					<label><?php echo $fields['department_select']['trans'];?></label>
+					<?php echo erLhcoreClassAbstract::renderInput('department_select', $fields['department_select'], $object)?>		
+					</div>
+					        		    
+        		    <h3><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Text changes')?></h3>
+        		
             		<div class="form-group">										
     				<label><?php echo $fields['support_joined']['trans'];?></label>
     				<?php echo erLhcoreClassAbstract::renderInput('support_joined', $fields['support_joined'], $object)?>		
@@ -237,6 +314,7 @@
     				<label><?php echo $fields['noonline_operators_offline']['trans'];?></label>
     				<?php echo erLhcoreClassAbstract::renderInput('noonline_operators_offline', $fields['noonline_operators_offline'], $object)?>		
     				</div>
+    				
         		</div>
         		
         		<div role="tabpanel" class="tab-pane" id="customcss">
@@ -272,7 +350,7 @@
 	
 	<div class="row">
 		<div class="col-md-12">
-			<div id="lhc_container"><div id="lhc_header"><span id="lhc_title" ng-show="abstract_checked_show_copyright"><a title="Powered by Live Helper Chat" href="{{ngModelAbstractInput_widget_copyright_url || 'http://livehelperchat.com'}}" target="_blank"><img src="<?php if ($object->copyright_image_url != '') : ?><?php echo $object->copyright_image_url?><?php else : ?><?php echo erLhcoreClassDesign::design('images/general/logo_grey.png');?><?php endif?>" alt="Live Helper Chat"></a></span><a ng-hide="abstract_checked_hide_close" href="#" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Close')?>" id="lhc_close"><img src="<?php if ($object->close_image_url != '') : ?><?php echo $object->close_image_url;?><?php else : ?><?php echo erLhcoreClassDesign::design('images/icons/cancel.png');?><?php endif;?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Close')?>" alt="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Close')?>"></a>&nbsp;<a ng-hide="abstract_checked_hide_popup" target="_blank" href="<?php echo erLhcoreClassDesign::baseurl('chat/startchat')?>/(leaveamessage)/true<?php echo $object->id > 0 ? '/(theme)/'.$object->id : ''?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Open in a new window')?>" id="lhc_remote_window"><img src="<?php if ($object->popup_image_url != '') : ?><?php echo $object->popup_image_url;?><?php else : ?><?php echo erLhcoreClassDesign::design('images/icons/application_double.png');?><?php endif;?>" alt="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Open in a new window')?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Open in a new window')?>"></a><a href="#" id="lhc_min" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Minimize/Restore')?>"><img src="<?php if ($object->minimize_image_url != '') : ?><?php echo $object->minimize_image_url;?><?php else : ?><?php echo erLhcoreClassDesign::design('images/icons/min.png');?><?php endif;?>"></a><a href="#" id="lhc_min" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Minimize/Restore')?>"><img src="<?php if ($object->restore_image_url != '') : ?><?php echo $object->restore_image_url;?><?php else : ?><?php echo erLhcoreClassDesign::design('images/icons/restore.png');?><?php endif;?>"></a></div><div id="lhc_iframe_container"><iframe id="lhc_iframe" allowtransparency="true" scrolling="no" class="lhc-loading" frameborder="0" src="<?php echo erLhcoreClassDesign::baseurl('chat/chatwidget')?>/(leaveamessage)/true<?php echo $object->id > 0 ? '/(theme)/'.$object->id : ''?>" width="320" height="292" style="width: 100%; height: 292px;"></iframe></div></div>
+			<div id="lhc_container"><div id="lhc_header"><span id="lhc_title" ng-show="abstract_checked_show_copyright"><a title="Powered by Live Helper Chat" href="{{ngModelAbstractInput_widget_copyright_url || 'http://livehelperchat.com'}}" target="_blank"><img src="<?php if ($object->copyright_image_url != '') : ?><?php echo $object->copyright_image_url?><?php else : ?><?php echo erLhcoreClassDesign::design('images/general/logo_grey.png');?><?php endif?>" alt="Live Helper Chat"></a></span><a ng-hide="abstract_checked_hide_close" href="#" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Close')?>" id="lhc_close"><img src="<?php if ($object->close_image_url != '') : ?><?php echo $object->close_image_url;?><?php else : ?><?php echo erLhcoreClassDesign::design('images/icons/cancel.png');?><?php endif;?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Close')?>" alt="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Close')?>"></a>&nbsp;<a ng-hide="abstract_checked_hide_popup" target="_blank" href="<?php echo erLhcoreClassDesign::baseurl('chat/startchat')?>/(leaveamessage)/true<?php echo $object->id > 0 ? '/(theme)/'.$object->id : ''?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Open in a new window')?>" id="lhc_remote_window"><img src="<?php if ($object->popup_image_url != '') : ?><?php echo $object->popup_image_url;?><?php else : ?><?php echo erLhcoreClassDesign::design('images/icons/application_double.png');?><?php endif;?>" alt="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Open in a new window')?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Open in a new window')?>"></a><a href="#" id="lhc_min" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Minimize/Restore')?>"><img src="<?php if ($object->minimize_image_url != '') : ?><?php echo $object->minimize_image_url;?><?php else : ?><?php echo erLhcoreClassDesign::design('images/icons/min.png');?><?php endif;?>"></a><a href="#" id="lhc_min" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Minimize/Restore')?>"><img src="<?php if ($object->restore_image_url != '') : ?><?php echo $object->restore_image_url;?><?php else : ?><?php echo erLhcoreClassDesign::design('images/icons/restore.png');?><?php endif;?>"></a></div><div id="lhc_iframe_container"><iframe id="lhc_iframe" allowtransparency="true" scrolling="no" class="lhc-loading" frameborder="0" src="<?php echo erLhcoreClassDesign::baseurl('chat/chatwidget')?>/(sdemo)/true/(leaveamessage)/true<?php echo $object->id > 0 ? '/(theme)/'.$object->id : ''?>" width="320" height="292" style="width: 100%; height: 292px;"></iframe></div></div>
 			<hr>
 		</div>
 		<div class="col-md-12">
@@ -293,11 +371,7 @@
 		#lhc_status_container{box-sizing: content-box;-webkit-border-top-left-radius: 20px;-moz-border-radius-topleft: 20px;border-top-left-radius: 20px;-webkit-box-shadow: -1px -1px 5px rgba(50, 50, 50, 0.17);border:1px solid #{{bactract_bg_color_bor_bcolor}};border-right:0;border-bottom:0;-moz-box-shadow:-1px -1px 5px rgba(50, 50, 50, 0.17);box-shadow: -1px -1px 5px rgba(50, 50, 50, 0.17);padding:5px 0px 0px 5px;width:190px;font-family:arial;font-size:12px;transition: 1s;background-color:#{{bactract_bg_color_onl_bcolor}};z-index:9989;}
 		@media only screen and (max-width : 640px) {#lhc_status_container{position:relative;top:0;right:0;bottom:0;left:0;width:auto;border-radius:2px;box-shadow:none;border:1px solid #e3e3e3;margin-bottom:5px;}}
 		</style>
-			
-			
-			
-			
-						
+				
 		<style type="text/css">
 		.lhc-no-transition{ -webkit-transition: none !important; -moz-transition: none !important;-o-transition: none !important;-ms-transition: none !important;transition: none !important;}
 		.lhc-min{height:35px !important}
@@ -322,6 +396,12 @@
 		#lhc_need_help_image{padding-right:10px;float:left;cursor:pointer;}#lhc_need_help_image img{border-radius:30px;border:1px solid #d0d0d0}#lhc_need_help_main_title{font-size:16px;font-weight:bold;cursor:pointer;line-height:1.5}#lhc_need_help_sub_title{cursor:pointer;line-height:1.5}
 		</style>
 			
+			 
+	    <script>	  
+	    $('#id_AbstractInput_buble_visitor_background').change(function(){
+		    document.getElementById('lhc_iframe').src = document.getElementById('lhc_iframe').src;		    
+		});
+	    </script>
 		
 	</div>
 </div>

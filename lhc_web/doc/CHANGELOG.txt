@@ -1,3 +1,20 @@
+2.39v
+
+1. https://github.com/LiveHelperChat/livehelperchat/issues/772 - option in theme to define optional field which would be visible in department
+2. https://github.com/LiveHelperChat/livehelperchat/issues/715
+3. One more time new chat messages interface. Messages can be styled in theme editing window.
+4. Option to turn off/on voting thumbs
+5. Option to have custom text instaed of Department. Let say location.
+
+execute doc/update_db/update_114.sql for update
+
+2.38v
+
+1. https://github.com/LiveHelperChat/livehelperchat/issues/771
+2. Option to enable disable need help widget directly from theme.
+
+execute doc/update_db/update_113.sql for update
+
 2.37v
 
 1. User can drag and sort frontpage widgets as he wants. Widgets order and what widgets user can see are based on user individually.

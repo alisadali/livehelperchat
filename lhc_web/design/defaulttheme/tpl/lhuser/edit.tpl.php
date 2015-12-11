@@ -1,4 +1,4 @@
-<h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','User edit');?> - <?php echo htmlspecialchars($user->name_support)?></h1>
+<h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Edit user');?> - <?php echo htmlspecialchars($user->name_support)?></h1>
 
 <?php if (isset($errors)) : ?>
 		<?php include(erLhcoreClassDesign::designtpl('lhkernel/validation_error.tpl.php'));?>
@@ -19,6 +19,9 @@
 
 <div class="tab-content">
 	<div role="tabpanel" class="tab-pane <?php if ($tab == '') : ?>active<?php endif;?>" id="account">
+
+	   <?php include(erLhcoreClassDesign::designtpl('lhuser/account/above_account_edit_multiinclude.tpl.php'));?>
+
 	   <div class="explain"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Do not enter a password unless you want to change it');?></div>
 	   <br />
 

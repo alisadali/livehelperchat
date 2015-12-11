@@ -3,6 +3,10 @@ $tpl = erLhcoreClassTemplate::getInstance('lhchat/dashboardwidgets.tpl.php');
 
 $dashboardOrderString = (string) erLhcoreClassModelUserSetting::getSetting('dwo', '');
 
+if (empty($dashboardOrderString)) {
+    $dashboardOrderString = erLhcoreClassModelChatConfig::fetch('dashboard_order')->current_value;
+}
+
 $widgetsUser = array();
 
 $dashboardOrder = array_filter(explode('|', $dashboardOrderString));
@@ -15,15 +19,17 @@ foreach ($dashboardOrder as $widgetsColumn) {
 }
 
 $supportedWidgets = array(
-    'online_operators' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets', 'Online operators'),
-    'active_chats' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets', 'Active chats'),
-    'online_visitors' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets', 'Online visitors'),
-    'departments_stats' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets', 'Departments stats'),
-    'pending_chats' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets', 'Pending chats'),
-    'unread_chats' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets', 'Unread chats'),
-    'transfered_chats' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets', 'Transfered chats'),
-    'closed_chats' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets', 'Closed chats')
+    'online_operators' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Online operators'),
+    'active_chats' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Active chats'),
+    'online_visitors' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Online visitors'),
+    'departments_stats' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Departments stats'),
+    'pending_chats' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Pending chats'),
+    'unread_chats' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Unread chats'),
+    'transfered_chats' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Transfered chats'),
+    'closed_chats' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Closed chats')
 );
+
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.dashboardwidgets',array('supported_widgets' => & $supportedWidgets));
 
 if (ezcInputForm::hasPostData()) {
     $definition = array(
@@ -51,6 +57,15 @@ if (ezcInputForm::hasPostData()) {
             }
         }
         
+        // Minimum 3 columns
+        $accCount = substr_count($dashboardOrderString,'|');
+        $missingTimes = 2 - $accCount;
+        
+        // Append to the end
+        if ($missingTimes > 0) {
+            $dashboardOrderString .= str_repeat('|', $missingTimes);
+        }
+  
         // Just cleanup
         $dashboardOrderString = str_replace(array(
             ',,',
@@ -70,20 +85,6 @@ if (ezcInputForm::hasPostData()) {
         erLhcoreClassModelUserSetting::setSetting('dwo', $dashboardOrderString);
         
         $tpl->set('updated', true);
-    }
-}
-
-// User does not have personal dashboard widgets.
-// So just user global one
-if ($dashboardOrderString == '') {
-    
-    $dashboardOrder = explode('|', erLhcoreClassModelChatConfig::fetch('dashboard_order')->current_value);
-    
-    foreach ($dashboardOrder as $widgetsColumn) {
-        $widgetsColumnItems = explode(',', $widgetsColumn);
-        foreach ($widgetsColumnItems as $widget) {
-            $widgetsUser[] = $widget;
-        }
     }
 }
 

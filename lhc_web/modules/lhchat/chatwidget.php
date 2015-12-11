@@ -37,8 +37,6 @@ if (isset($Params['user_parameters_unordered']['theme']) && (int)$Params['user_p
 	}
 }
 
-
-
 // Perhaps it's direct argument
 if ((string)$Params['user_parameters_unordered']['hash'] != '') {
 	list($chatID,$hash) = explode('_',$Params['user_parameters_unordered']['hash']);
@@ -47,7 +45,8 @@ if ((string)$Params['user_parameters_unordered']['hash'] != '') {
 
 	try {
 		$chat = erLhcoreClassModelChat::fetch($chatID);
-		if ($chat->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT) {			
+		if ($chat->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT) {		
+		    	
 			// Reopen chat automatically if possible
 			if ( erLhcoreClassModelChatConfig::fetch('automatically_reopen_chat')->current_value == 1 && erLhcoreClassModelChatConfig::fetch('reopen_chat_enabled')->current_value == 1 && erLhcoreClassModelChatConfig::fetch('allow_reopen_closed')->current_value == 1 && erLhcoreClassChat::canReopen($chat) !== false ) {
 				
@@ -55,18 +54,19 @@ if ((string)$Params['user_parameters_unordered']['hash'] != '') {
 				erLhcoreClassModule::redirect('chat/reopen','/' .$chatID . '/' . $hash . '/(mode)/widget' . $modeAppend . $modeAppendTheme . $sound );
 				exit;
 			}
+		} 
+		
+		if (isset($Params['user_parameters_unordered']['survey']) && is_numeric($Params['user_parameters_unordered']['survey'])){
+		    $modeAppendTheme .= '/(survey)/' . $Params['user_parameters_unordered']['survey'];
 		}
+		
+		// Rerun module
+		$Result = erLhcoreClassModule::reRun(erLhcoreClassDesign::baseurlRerun('chat/chatwidgetchat') . '/' . $chatID . '/' . $hash . $modeAppend . $modeAppendTheme . $sound);
+		return true;
+		
 	} catch (Exception $e) {
 		
 	}
-	
-	if (isset($Params['user_parameters_unordered']['survey']) && is_numeric($Params['user_parameters_unordered']['survey'])){
-	    $modeAppendTheme .= '/(survey)/' . $Params['user_parameters_unordered']['survey'];
-	}
-	
-	// Rerun module
-	$Result = erLhcoreClassModule::reRun(erLhcoreClassDesign::baseurlRerun('chat/chatwidgetchat') . '/' . $chatID . '/' . $hash . $modeAppend . $modeAppendTheme . $sound);
-	return true;
 }
 
 $tpl = erLhcoreClassTemplate::getInstance( 'lhchat/chatwidget.tpl.php');
@@ -213,6 +213,11 @@ if ((string)$Params['user_parameters_unordered']['offline'] == 'true' && $leavea
 }
 
 $tpl->set('leaveamessage',$leaveamessage);
+
+// Theme
+if (isset($Result['theme'])) {
+    $additionalParams['theme'] = $Result['theme'];
+}
 
 if (isset($_POST['StartChat']) && $disabled_department === false)
 {
@@ -459,6 +464,12 @@ if (isset($_POST['r']))
 }
 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chatwidget',array('tpl' => $tpl, 'params' => & $Params));
+
+if (isset($Params['user_parameters_unordered']['sdemo']) && (int)$Params['user_parameters_unordered']['sdemo'] == 'true') {
+    $tpl->set('show_demo',true);
+} else {
+    $tpl->set('show_demo',false);
+}
 
 $Result['content'] = $tpl->fetch();
 $Result['pagelayout'] = 'widget';

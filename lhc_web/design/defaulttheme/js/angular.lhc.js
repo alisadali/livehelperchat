@@ -1,3 +1,10 @@
+$( document ).ready(function() {
+	var hash = window.location.hash;	
+	if (hash != '') {
+		$('ul[role="tablist"] a[href="' + hash.replace("#/","#") + '"]').tab('show');
+	}
+});
+
 var phonecatApp = angular.module('lhcApp', [
   'lhcAppServices',
   'lhcAppControllers'
@@ -134,6 +141,8 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 		}
 	};
 	
+	
+	
 	this.toggleList = function(variable) {
 		$scope[variable] = !$scope[variable];		
 		if (localStorage) {
@@ -142,6 +151,23 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
     		} catch(err) {    			   		
     		};
     	}		
+	};
+	
+	this.toggleWidgetData = [];
+	
+	this.toggleWidget = function(variable) {
+		_that.toggleWidgetData[variable] = typeof _that.toggleWidgetData[variable] !== 'undefined' ? !_that.toggleWidgetData[variable] : true;
+
+		if (localStorage) {
+    		try {
+    			localStorage.setItem(variable,_that.toggleWidgetData[variable]);
+    		} catch(err) {    			   		
+    		};
+    	}
+	};
+	
+	this.getToggleWidget = function(variable) {
+		this.toggleWidgetData[variable] = this.restoreLocalSetting(variable,'false',false) == 'false' ? false : true;
 	};
 	
 	$scope.getSyncFilter = function()
@@ -362,3 +388,4 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 	
 	$scope.loadChatList();
 }]);
+

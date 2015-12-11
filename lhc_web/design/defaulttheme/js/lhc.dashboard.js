@@ -2,6 +2,7 @@ $( document ).ready(function() {
 	$('#dashboard-body, #onlineusers, #map').popover({
 		  trigger:'hover',
 		  html : true, 
+		  container: 'body',
 		  selector: '[data-toggle="popover"]',
 		  content: function () {
 			 if ($(this).is('[data-popover-content]')) {
@@ -11,7 +12,11 @@ $( document ).ready(function() {
 			 }
 		  },
 		  title: function () {
-			 return  $('#popover-title-'+$(this).attr('data-chat-id')).html();
+			 if ($(this).is('[data-popover-title]')) {
+				 return $('#'+$(this).attr('data-popover-title')+'-'+$(this).attr('data-chat-id')).html();
+			 } else {
+				 return  $('#popover-title-'+$(this).attr('data-chat-id')).html();
+			 }
 		  }
 	});
 	
@@ -26,7 +31,8 @@ $( document ).ready(function() {
     panelList.sortable({
         connectWith:".sortable-column-dashboard",
         opacity: 0.7,       
-        handle: ".panel-heading", 
+        handle: ".panel-heading",         
+        items: '> div',
         update: function() {
         	if (savingSettings == false)
     		{
@@ -50,5 +56,5 @@ $( document ).ready(function() {
         		});
     		}    		    		 
        }
-    }).disableSelection();
+    });
 });

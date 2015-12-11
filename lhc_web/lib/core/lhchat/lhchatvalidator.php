@@ -105,13 +105,11 @@ class erLhcoreClassChatValidator {
             
         }
 
-        $validationFields['DepartamentID'] = new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 1));
+        $validationFields['DepartamentID'] = new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => -1));
         $validationFields['DepartmentIDDefined'] = new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 1),FILTER_REQUIRE_ARRAY);
         $validationFields['operator'] = new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 1));
         $validationFields['user_timezone'] = new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int');
         $validationFields['keyUpStarted'] = new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1));
-        
-        
         
         $validationFields['name_items'] = new ezcInputFormDefinitionElement(
         		ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',
@@ -193,16 +191,16 @@ class erLhcoreClassChatValidator {
        
         if (erLhcoreClassModelChatConfig::fetch('session_captcha')->current_value == 1) {
         	if ( !$form->hasValidData( $nameField ) || $form->$nameField == '' || $form->$nameField < time()-600 || $hashCaptcha != sha1($_SERVER['REMOTE_ADDR'].$form->$nameField.erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' ))){
-        		$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation("chat/startchat","Your request was not processed as expected - but don't worry it was not your fault. Please re-submit your request. If you experience the same issue you will need to contact us via other means.");
+        		$Errors['captcha'] = erTranslationClassLhTranslation::getInstance()->getTranslation("chat/startchat","Your request was not processed as expected - but don't worry it was not your fault. Please re-submit your request. If you experience the same issue you will need to contact us via other means.");
         	}
         } else {
         	// Captcha validation
         	if ( !$form->hasValidData( $nameField ) || $form->$nameField == '' || $form->$nameField < time()-600 )
         	{
-        		$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation("chat/startchat","Your request was not processed as expected - but don't worry it was not your fault. Please re-submit your request. If you experience the same issue you will need to contact us via other means.");
+        		$Errors['captcha'] = erTranslationClassLhTranslation::getInstance()->getTranslation("chat/startchat","Your request was not processed as expected - but don't worry it was not your fault. Please re-submit your request. If you experience the same issue you will need to contact us via other means.");
         	}
         }
-          
+        
         if (isset($validationFields['Username'])) {
 
             if ( !$form->hasValidData( 'Username' ) || ($form->Username == '' && (($start_data_fields['name_require_option'] == 'required' && !isset($additionalParams['offline'])) || (isset($additionalParams['offline']) && isset($start_data_fields['offline_name_require_option']) && $start_data_fields['offline_name_require_option'] == 'required' )))  )
@@ -315,8 +313,17 @@ class erLhcoreClassChatValidator {
         	$inputForm->departament_id_array = $form->DepartmentIDDefined;
         }
         
-        if ($form->hasValidData( 'DepartamentID' ) && erLhcoreClassModelDepartament::getCount(array('filter' => array('id' => $form->DepartamentID,'disabled' => 0))) > 0) {
-        	$chat->dep_id = $form->DepartamentID;
+        if ($form->hasValidData( 'DepartamentID' ) && erLhcoreClassModelDepartament::getCount(array('filter' => array('id' => $form->DepartamentID, 'disabled' => 0))) > 0) {
+        	$chat->dep_id = $form->DepartamentID;        	
+        } elseif ($form->hasValidData( 'DepartamentID' ) && $form->DepartamentID == -1) {            
+            $chat->dep_id == 0;
+            
+            if (isset($additionalParams['theme']) && $additionalParams['theme'] !== false && $additionalParams['theme']->department_title != '') {
+                $Errors['department'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please choose').' '.htmlspecialchars($additionalParams['theme']->department_title).'!';
+            } else {
+                $Errors['department'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please choose department!');
+            }
+            
         } elseif ($chat->dep_id == 0 || erLhcoreClassModelDepartament::getCount(array('filter' => array('id' => $chat->dep_id,'disabled' => 0))) == 0) {
             
             // Perhaps extension overrides default department?
@@ -398,7 +405,7 @@ class erLhcoreClassChatValidator {
         		if (isset($inputForm->values_req[$key]) && $inputForm->values_req[$key] == 't' && ($inputForm->value_show[$key] == 'b' || $inputForm->value_show[$key] == (isset($additionalParams['offline']) ? 'off' : 'on')) && (!isset($valuesArray[$key]) || trim($valuesArray[$key]) == '')) {
         			$Errors['additional_'.$key] = trim($name_item).' : '.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','is required');
         		}
-        		$stringParts[] = array('key' => $name_item,'value' => (isset($valuesArray[$key]) ? trim($valuesArray[$key]) : ''));
+        		$stringParts[] = array('h' => ($inputForm->value_types[$key] && $inputForm->value_types[$key] == 'hidden' ? true : false), 'key' => $name_item,'value' => (isset($valuesArray[$key]) ? trim($valuesArray[$key]) : ''));
         	}        	
         }
         
@@ -434,6 +441,103 @@ class erLhcoreClassChatValidator {
         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.validate_start_chat',array('errors' => & $Errors, 'input_form' => & $inputForm, 'start_data_fields' => & $start_data_fields, 'chat' => & $chat,'additional_params' => & $additionalParams));
         
         return $Errors;
+    }
+    
+    
+    /**
+     * Validates custom fields
+     */
+    public static function validateCustomFieldsRefresh(& $chat)
+    {
+        $definition = array (
+            'name'  => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',
+                null,
+                FILTER_REQUIRE_ARRAY
+            ),
+            'value' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',
+                null,
+                FILTER_REQUIRE_ARRAY
+            ),
+            'type' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'string',
+                null,
+                FILTER_REQUIRE_ARRAY
+            ),
+            'size' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'string',
+                null,
+                FILTER_REQUIRE_ARRAY
+            ),
+            'req' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'string',
+                null,
+                FILTER_REQUIRE_ARRAY
+            ),
+            'sh' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'string',
+                null,
+                FILTER_REQUIRE_ARRAY
+            )            
+        );
+    
+        $form = new ezcInputForm( INPUT_POST, $definition );
+        $Errors = array();
+        $inputForm = new stdClass();
+        
+        $stringParts = array();
+        
+        if ( $form->hasValidData( 'name' ) && !empty($form->name))
+        {
+            $valuesArray = array();
+            if ( $form->hasValidData( 'value' ) && !empty($form->value))
+            {
+                $inputForm->value = $valuesArray = $form->value;
+            }
+             
+            if ( $form->hasValidData( 'req' ) && !empty($form->req))
+            {
+                $inputForm->req = $form->req;
+            }
+        
+            if ( $form->hasValidData( 'type' ) && !empty($form->type))
+            {
+                $inputForm->type = $form->type;
+            }
+        
+            if ( $form->hasValidData( 'size' ) && !empty($form->size))
+            {
+                $inputForm->size = $form->size;
+            }
+        
+            $inputForm->name = $form->name;
+            
+            $currentChatData = json_decode($chat->additional_data,true);
+            
+            if (is_array($currentChatData)) {
+                foreach ($currentChatData as $key => $data) {
+                    if (isset($data['h']) && $data['h'] == true) {
+                        unset($currentChatData[$key]);
+                    }
+                }
+            } else {
+                $currentChatData = array();
+            }
+            
+            foreach ($form->name as $key => $name_item) {
+                if (isset($inputForm->type[$key]) && $inputForm->type[$key] == 'hidden') {
+                    $currentChatData[] = array('h' => true, 'key' => $name_item,'value' => isset($inputForm->value[$key]) ? trim($inputForm->value[$key]) : '');
+                }
+            }
+        }
+        
+        // To reset index
+        $currentChatData = array_values($currentChatData);
+        
+        if (!empty($currentChatData)) {
+            $chat->additional_data = json_encode($currentChatData);
+        }
     }
     
     /**
